@@ -33,7 +33,7 @@ body {
 .header-bar {
     background-color: var(--header-background);
     color: var(--header-text);
-    padding: 15px 30px; /* This handles top/bottom padding and left/right padding */
+    padding: 15px 0px; /* This handles top/bottom padding and left/right padding */
     display: flex;
     justify-content: flex-end;
     align-items: center;

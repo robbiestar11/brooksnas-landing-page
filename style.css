@@ -1,1 +1,95 @@
+/* Define CSS variables for colors */
+:root {
+    /* Default (Light Mode) Colors */
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --header-background: #333;
+    --header-text: #fff;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* Dark Mode Colors - applied based on user preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #e0e0e0;
+        --card-background: #1e1e1e;
+        --header-background: #1e1e1e;
+        --header-text: #e0e0e0;
+        --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Base Styles using the variables */
+body {
+    font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-bar {
+    background-color: var(--header-background);
+    color: var(--header-text);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.signout-button {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.signout-button:hover {
+    background-color: #5a6268;
+}
+
+.container {
+    max-width: 600px;
+    margin: 100px auto 20px;
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.immich-button {
+    background-color: #007bff; /* Blue */
+}
+.immich-button:hover {
+    background-color: #0056b3;
+}
+.jellyfin-button {
+    background-color: #ff5722; /* Orange */
+}
+.jellyfin-button:hover {
+    background-color: #e64a19;
+}

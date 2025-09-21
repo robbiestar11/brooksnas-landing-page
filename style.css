@@ -31,9 +31,9 @@ body {
 }
 
 .header-bar {
-    background-color: #333;
-    color: #fff;
-    padding: 15px 20px;
+    background-color: var(--header-background);
+    color: var(--header-text);
+    padding: 15px 30px; /* This handles top/bottom padding and left/right padding */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -41,8 +41,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--card-shadow);
     z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .signout-button {

@@ -4,17 +4,26 @@
     <title>Brooks NAS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
     <div class="header-bar">
+        <div class="theme-toggle">
+            <span id="light-mode-toggle" class="toggle-option active">
+                Light ☀️
+            </span>
+            <span id="dark-mode-toggle" class="toggle-option">
+                Dark 🌙
+            </span>
+        </div>
+
         <a href="https://brooksnas.com/cdn-cgi/access/logout" class="signout-button">
-            Sign Out
+            Sign Out ➡️
         </a>
     </div>
 
     <div class="container">
-        <h1>Welcome to Brooks's NAS! </h1>
+        <h1>Welcome to Brooks's NAS! 🏠</h1>
         <p>Choose an application to launch:</p>
         <a href="https://immich.brooksnas.com" class="button immich-button">
             Immich 📸
@@ -23,5 +32,7 @@
             Jellyfin 🍿
         </a>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

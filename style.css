@@ -136,6 +136,12 @@ body.dark-mode .container {
 .jellyfin-button:hover {
     background-color: #e64a19;
 }
+.truenas-button {
+    background-color: #d4a574; /* Creamy brown color */
+}
+.truenas-button:hover {
+    background-color: #c19660;
+}
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {

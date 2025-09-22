@@ -76,7 +76,7 @@ body {
     transition: background-color 0.3s ease;
 }
 .immich-button {
-    background-color: #aca6de; /* Blue #007bff!*/
+    background-color: #ff5722; /* Blue #007bff #aca6de*/
 }
 .immich-button:hover {
     background-color: #0056b3;

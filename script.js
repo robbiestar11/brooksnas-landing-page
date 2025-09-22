@@ -1,25 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const lightModeToggle = document.getElementById('light-mode-toggle');
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const toggleSwitch = document.getElementById('checkbox');
     const body = document.body;
 
     // Function to set the theme and update UI
     function setTheme(theme) {
-        body.classList.remove('light-mode', 'dark-mode');
-        body.classList.add(theme);
-        localStorage.setItem('theme', theme);
-        updateToggleButtons(theme);
-    }
-
-    // Function to update the UI
-    function updateToggleButtons(theme) {
         if (theme === 'dark-mode') {
-            darkModeToggle.classList.add('active');
-            lightModeToggle.classList.remove('active');
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
         } else {
-            lightModeToggle.classList.add('active');
-            darkModeToggle.classList.remove('active');
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            toggleSwitch.checked = false;
         }
+        localStorage.setItem('theme', theme);
     }
 
     // Check for a saved theme preference on page load
@@ -32,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setTheme('light-mode');
     }
 
-    // Event listeners for the buttons
-    lightModeToggle.addEventListener('click', () => {
-        setTheme('light-mode');
-    });
-
-    darkModeToggle.addEventListener('click', () => {
-        setTheme('dark-mode');
+    // Event listener for the toggle switch
+    toggleSwitch.addEventListener('change', () => {
+        if (toggleSwitch.checked) {
+            setTheme('dark-mode');
+        } else {
+            setTheme('light-mode');
+        }
     });
 });

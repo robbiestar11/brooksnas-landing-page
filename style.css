@@ -54,10 +54,10 @@ body.dark-mode .container {
     box-shadow: var(--dark-card-shadow);
 }
 
-/* Theme Toggle Styles */
+/* Theme Toggle Slider Styles */
 .header-bar {
     display: flex;
-    justify-content: space-between; /* Space out items */
+    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     position: fixed;
@@ -67,28 +67,53 @@ body.dark-mode .container {
     z-index: 1000;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
-.theme-toggle {
+.theme-switch-wrapper {
     display: flex;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
+    align-items: center;
 }
-.toggle-option {
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+.theme-switch input {
+    display: none;
+}
+.slider {
+    background-color: #ccc;
+    border-radius: 34px;
+    bottom: 0;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    font-size: 0.9em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
 }
-.toggle-option.active {
-    background-color: #f0f0f0;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+.slider:before {
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
 }
-.dark-mode .toggle-option.active {
-    background-color: #333;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+input:checked + .slider {
+    background-color: #2196f3;
 }
-
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+.dark-mode .slider {
+    background-color: #555;
+}
+.dark-mode input:checked + .slider {
+    background-color: #2196f3;
+}
 /* Button styles (unchanged) */
 .signout-button {
     background-color: #6c757d;

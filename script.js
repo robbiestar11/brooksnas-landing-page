@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to set the theme and update UI
     function setTheme(theme) {
-        body.classList.remove('light-mode', 'dark-mode'); // Remove both first
-        body.classList.add(theme); // Add the new theme class
-        localStorage.setItem('theme', theme); // Save preference
-        updateToggleButtons(theme); // Update active state of buttons
+        body.classList.remove('light-mode', 'dark-mode');
+        body.classList.add(theme);
+        localStorage.setItem('theme', theme);
+        updateToggleButtons(theme);
     }
 
     // Function to update the visual state of the toggle buttons
@@ -27,21 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme) {
         setTheme(savedTheme);
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // If no saved theme, check system preference
         setTheme('dark-mode');
     } else {
-        // Default to light mode if nothing else is specified
         setTheme('light-mode');
     }
 
-    // Event listeners for the buttons
-    // Clicking the light button always sets light mode
-    lightModeToggle.addEventListener('click', () => {
-        setTheme('light-mode');
-    });
+    // Function to toggle the theme
+    function toggleTheme() {
+        if (body.classList.contains('dark-mode')) {
+            setTheme('light-mode');
+        } else {
+            setTheme('dark-mode');
+        }
+    }
 
-    // Clicking the dark button always sets dark mode
-    darkModeToggle.addEventListener('click', () => {
-        setTheme('dark-mode');
-    });
+    // Event listeners for the buttons
+    // Both buttons now trigger the same toggle function
+    lightModeToggle.addEventListener('click', toggleTheme);
+    darkModeToggle.addEventListener('click', toggleTheme);
 });

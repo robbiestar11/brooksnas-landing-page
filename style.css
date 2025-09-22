@@ -57,13 +57,14 @@ body.dark-mode .container {
 /* Theme Toggle Buttons Styles */
 .header-bar {
     display: flex;
-    justify-content: space-between; /* Space out items */
+    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; /* Change this to calc(100% - 40px) if the other fixes dont work */
+    box-sizing: border-box; /* This is the most important fix */
     z-index: 1000;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
@@ -81,11 +82,11 @@ body.dark-mode .container {
     font-size: 0.9em;
 }
 .toggle-option.active {
-    background-color: #f0f0f0; /* Active background for light mode */
+    background-color: #f0f0f0;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 .dark-mode .toggle-option.active {
-    background-color: #333; /* Active background for dark mode */
+    background-color: #333;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
@@ -97,6 +98,7 @@ body.dark-mode .container {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-right: 20px; /* Reduced from 50px */
 }
 .signout-button:hover {
     background-color: #5a6268;

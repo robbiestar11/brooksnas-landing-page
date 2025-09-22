@@ -6,7 +6,6 @@
     --light-header-background: #333;
     --light-header-text: #fff;
     --light-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
     --dark-background-color: #121212;
     --dark-text-color: #e0e0e0;
     --dark-card-background: #1e1e1e;
@@ -54,12 +53,12 @@ body.dark-mode .container {
     box-shadow: var(--dark-card-shadow);
 }
 
-/* Theme Toggle Buttons Styles */
+/* Header Bar */
 .header-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; /* Provides 20px padding on left and right */
+    padding: 15px 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -68,6 +67,8 @@ body.dark-mode .container {
     z-index: 1000;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
+
+/* Theme Toggle */
 .theme-toggle {
     display: flex;
     border: 1px solid #ddd;
@@ -90,7 +91,7 @@ body.dark-mode .container {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
-/* Button styles (unchanged) */
+/* Sign Out Button */
 .signout-button {
     background-color: #6c757d;
     color: #fff;
@@ -98,11 +99,12 @@ body.dark-mode .container {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    /* Removed margin-right to rely solely on header-bar padding */
 }
 .signout-button:hover {
     background-color: #5a6268;
 }
+
+/* Container */
 .container {
     max-width: 600px;
     margin: 100px auto 20px;
@@ -110,6 +112,8 @@ body.dark-mode .container {
     border-radius: 10px;
     text-align: center;
 }
+
+/* App Buttons - Desktop Default */
 .button {
     display: inline-block;
     margin: 10px;
@@ -131,4 +135,81 @@ body.dark-mode .container {
 }
 .jellyfin-button:hover {
     background-color: #e64a19;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust header for mobile */
+    .header-bar {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    /* Make theme toggle smaller on mobile */
+    .theme-toggle {
+        order: 1;
+    }
+    
+    .signout-button {
+        order: 2;
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    
+    /* Container adjustments for mobile */
+    .container {
+        margin: 90px 15px 20px; /* Less top margin, side margins for mobile */
+        padding: 20px 15px;
+        max-width: none; /* Remove max-width constraint */
+    }
+    
+    /* Mobile button layout - full width stacked buttons */
+    .button {
+        display: block;
+        width: 100%;
+        margin: 15px 0; /* Vertical spacing between buttons */
+        padding: 20px 15px; /* More padding for easier touch targets */
+        font-size: 1.3em; /* Slightly larger text for mobile */
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    /* Adjust heading and text for mobile */
+    .container h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .container p {
+        font-size: 1.1em;
+        margin-bottom: 25px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .header-bar {
+        padding: 10px 12px;
+    }
+    
+    .container {
+        margin: 85px 10px 15px;
+        padding: 15px 10px;
+    }
+    
+    .button {
+        padding: 18px 12px;
+        font-size: 1.2em;
+    }
+    
+    /* Stack header items vertically on very small screens if needed */
+    .theme-toggle {
+        font-size: 0.8em;
+    }
+    
+    .toggle-option {
+        padding: 4px 8px;
+        font-size: 0.8em;
+    }
 }

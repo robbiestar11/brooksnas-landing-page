@@ -1,221 +1,143 @@
-/* All CSS variables will now be managed by classes */
+/* ------------------ Root Variables ------------------ */
 :root {
-    --light-background-color: #f0f0f0;
-    --light-text-color: #333;
-    --light-card-background: #ffffff;
-    --light-header-background: #333;
+    --transition: 0.3s ease;
+
+    /* Light Theme */
+    --light-bg: #f0f0f0;
+    --light-text: #333;
+    --light-card: #fff;
+    --light-header: #333;
     --light-header-text: #fff;
-    --light-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --dark-background-color: #121212;
-    --dark-text-color: #e0e0e0;
-    --dark-card-background: #1e1e1e;
-    --dark-header-background: #1e1e1e;
+    --light-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    /* Dark Theme */
+    --dark-bg: #121212;
+    --dark-text: #e0e0e0;
+    --dark-card: #1e1e1e;
+    --dark-header: #1e1e1e;
     --dark-header-text: #e0e0e0;
-    --dark-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --dark-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
-/* Base Styles */
+/* ------------------ Base Styles ------------------ */
 body {
-    font-family: sans-serif;
     margin: 0;
-    transition: background-color 0.3s, color 0.3s;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    transition: background-color var(--transition), color var(--transition);
 }
 
-/* Light Mode Styles (default) */
+/* Light */
 body.light-mode {
-    background-color: var(--light-background-color);
-    color: var(--light-text-color);
+    background-color: var(--light-bg);
+    color: var(--light-text);
 }
 body.light-mode .header-bar {
-    background-color: var(--light-header-background);
+    background: var(--light-header);
     color: var(--light-header-text);
-    box-shadow: var(--light-card-shadow);
+    box-shadow: var(--light-shadow);
 }
 body.light-mode .container {
-    background-color: var(--light-card-background);
-    color: var(--light-text-color);
-    box-shadow: var(--light-card-shadow);
+    background: var(--light-card);
+    box-shadow: var(--light-shadow);
 }
 
-/* Dark Mode Styles */
+/* Dark */
 body.dark-mode {
-    background-color: var(--dark-background-color);
-    color: var(--dark-text-color);
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 body.dark-mode .header-bar {
-    background-color: var(--dark-header-background);
+    background: var(--dark-header);
     color: var(--dark-header-text);
-    box-shadow: var(--dark-card-shadow);
+    box-shadow: var(--dark-shadow);
 }
 body.dark-mode .container {
-    background-color: var(--dark-card-background);
-    color: var(--dark-text-color);
-    box-shadow: var(--dark-card-shadow);
+    background: var(--dark-card);
+    box-shadow: var(--dark-shadow);
 }
 
-/* Header Bar */
+/* ------------------ Header ------------------ */
 .header-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1000;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    z-index: 100;
+}
+.site-title {
+    margin: 0;
+    font-size: 1.2rem;
 }
 
-/* Theme Toggle */
+/* ------------------ Theme Toggle ------------------ */
 .theme-toggle {
     display: flex;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
 }
 .toggle-option {
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    font-size: 0.9em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    user-select: none;
+    transition: background-color var(--transition), box-shadow var(--transition);
 }
 .toggle-option.active {
-    background-color: #f0f0f0;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.dark-mode .toggle-option.active {
-    background-color: #333;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    background-color: rgba(255,255,255,0.2);
 }
 
-/* Sign Out Button */
-.signout-button {
-    background-color: #6c757d;
-    color: #fff;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.signout-button:hover {
-    background-color: #5a6268;
-}
-
-/* Container */
+/* ------------------ Main Container ------------------ */
 .container {
     max-width: 600px;
-    margin: 100px auto 20px;
-    padding: 20px;
-    border-radius: 10px;
+    margin: 80px auto 20px;
+    padding: 30px;
+    border-radius: 12px;
     text-align: center;
 }
+.container h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
 
-/* App Buttons - Desktop Default */
+/* ------------------ Buttons ------------------ */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
 .button {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    color: #ffffff;
+    display: block;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    transition: background-color var(--transition), transform var(--transition);
 }
-.immich-button {
-    background-color: #007bff;
-}
-.immich-button:hover {
-    background-color: #0056b3;
-}
-.jellyfin-button {
-    background-color: #ff5722;
-}
-.jellyfin-button:hover {
-    background-color: #e64a19;
-}
-.truenas-button {
-    background-color: #d4a574; /* Creamy brown color */
-}
-.truenas-button:hover {
-    background-color: #c19660;
+.button:hover {
+    transform: translateY(-2px);
 }
 
-/* Mobile Responsive Design */
-@media (max-width: 768px) {
-    /* Adjust header for mobile */
-    .header-bar {
-        padding: 12px 15px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    /* Make theme toggle smaller on mobile */
-    .theme-toggle {
-        order: 1;
-    }
-    
-    .signout-button {
-        order: 2;
-        padding: 6px 12px;
-        font-size: 0.9em;
-    }
-    
-    /* Container adjustments for mobile */
-    .container {
-        margin: 90px 15px 20px; /* Less top margin, side margins for mobile */
-        padding: 20px 15px;
-        max-width: none; /* Remove max-width constraint */
-    }
-    
-    /* Mobile button layout - full width stacked buttons */
-    .button {
-        display: block;
-        width: 100%;
-        margin: 15px 0; /* Vertical spacing between buttons */
-        padding: 20px 15px; /* More padding for easier touch targets */
-        font-size: 1.3em; /* Slightly larger text for mobile */
-        box-sizing: border-box;
-        text-align: center;
-    }
-    
-    /* Adjust heading and text for mobile */
-    .container h1 {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-    
-    .container p {
-        font-size: 1.1em;
-        margin-bottom: 25px;
-    }
-}
+.immich-button { background: #007bff; }
+.immich-button:hover { background: #0056b3; }
 
-/* Extra small mobile devices */
-@media (max-width: 480px) {
-    .header-bar {
-        padding: 10px 12px;
-    }
-    
-    .container {
-        margin: 85px 10px 15px;
-        padding: 15px 10px;
-    }
-    
-    .button {
-        padding: 18px 12px;
-        font-size: 1.2em;
-    }
-    
-    /* Stack header items vertically on very small screens if needed */
-    .theme-toggle {
-        font-size: 0.8em;
-    }
-    
-    .toggle-option {
-        padding: 4px 8px;
-        font-size: 0.8em;
-    }
+.jellyfin-button { background: #ff5722; }
+.jellyfin-button:hover { background: #e64a19; }
+
+.truenas-button { background: #d4a574; }
+.truenas-button:hover { background: #c19660; }
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 600px) {
+    .header-bar { flex-direction: column; gap: 10px; }
+    .site-title { font-size: 1rem; }
+    .container { margin: 60px 15px 20px; padding: 20px; }
+    .button { font-size: 1rem; padding: 12px; }
 }

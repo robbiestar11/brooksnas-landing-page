@@ -94,7 +94,7 @@ body.dark-mode .container {
 /* ------------------ Main Container ------------------ */
 .container {
     max-width: 600px;
-    margin: 80px auto 20px;
+    margin: 150px auto 20px; /* Change this value */
     padding: 30px;
     border-radius: 12px;
     text-align: center;

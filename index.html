@@ -7,28 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="light-mode">
-    <div class="header-bar">
+    <header class="header-bar">
+        <h1 class="site-title">Brooks NAS</h1>
         <div class="theme-toggle">
-            <span id="light-mode-toggle" class="toggle-option">
-                Light ☀️
-            </span>
-            <span id="dark-mode-toggle" class="toggle-option">
-                Dark 🌙
-            </span>
-    </div>
-    <div class="container">
-        <h1>Welcome to my NAS! </h1>
+            <span id="light-mode-toggle" class="toggle-option">☀️ Light</span>
+            <span id="dark-mode-toggle" class="toggle-option">🌙 Dark</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Welcome!</h2>
         <p>Choose an application to launch:</p>
-        <a href="https://immich.brooksnas.com" class="button immich-button" target="_blank" rel="noopener noreferrer">
-            Immich 📸
-        </a>
-        <a href="https://jellyfin.brooksnas.com" class="button jellyfin-button" target="_blank" rel="noopener noreferrer">
-            Jellyfin 🍿
-        </a>
-        <a href="https://truenas.brooksnas.com" class="button truenas-button" target="_blank" rel="noopener noreferrer">
-            TrueNAS 💾
-        </a>
-    </div>
+        <div class="button-group">
+            <a href="https://immich.brooksnas.com" class="button immich-button" target="_blank" rel="noopener noreferrer">Immich 📸</a>
+            <a href="https://jellyfin.brooksnas.com" class="button jellyfin-button" target="_blank" rel="noopener noreferrer">Jellyfin 🍿</a>
+            <a href="https://truenas.brooksnas.com" class="button truenas-button" target="_blank" rel="noopener noreferrer">TrueNAS 💾</a>
+        </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
